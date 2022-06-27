@@ -1,0 +1,174 @@
+---
+BasedOnStyle: Microsoft
+ColumnLimit: 100
+AlignEscapedNewlines: Left
+AlignTrailingComments: false
+AllowShortBlocksOnASingleLine: Empty
+PackConstructorInitializers: CurrentLine # requires llvm >= 14
+IndentPPDirectives: BeforeHash
+ForEachMacros:
+  - forever
+  - foreach
+  - Q_FOREACH
+  - BOOST_FOREACH
+StatementMacros:
+  - Q_UNUSED
+  - QT_REQUIRE_VERSION
+  - emit
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Aether libraries (uses "aether_*")
+  - Regex: '^"aether.*'
+    Priority: 1
+  # Boost (uses always <boost_*>)
+  - Regex: "^<boost.*>"
+    Priority: 3
+  # Qt (uses always <Q*> )
+  - Regex: "^<Q.*>"
+    Priority: 4
+  # POSIX
+  - Regex: "\
+      ^<(\
+      aio\
+      |arpa/inet\
+      |assert\
+      |complex\
+      |cpio\
+      |ctype\
+      |dirent\
+      |dlfcn\
+      |errno\
+      |fcntl\
+      |fenv\
+      |float\
+      |fmtmsg\
+      |fnmatch\
+      |ftw\
+      |glob\
+      |grp\
+      |iconv\
+      |inttypes\
+      |iso646\
+      |langinfo\
+      |libgen\
+      |limits\
+      |locale\
+      |math\
+      |monetary\
+      |mqueue\
+      |ndbm\
+      |net/if\
+      |netdb\
+      |netinet/in\
+      |netinet/tcp\
+      |nl_types\
+      |poll\
+      |pthread\
+      |pwd\
+      |regex\
+      |sched\
+      |search\
+      |semaphore\
+      |setjmp\
+      |signal\
+      |spawn\
+      |stdarg\
+      |stdbool\
+      |stddef\
+      |stdint\
+      |stdio\
+      |stdlib\
+      |string\
+      |strings\
+      |stropts\
+      |sys/ipc\
+      |sys/mman\
+      |sys/msg\
+      |sys/resource\
+      |sys/select\
+      |sys/sem\
+      |sys/shm\
+      |sys/socket\
+      |sys/stat\
+      |sys/statvfs\
+      |sys/time\
+      |sys/times\
+      |sys/types\
+      |sys/uio\
+      |sys/un\
+      |sys/utsname\
+      |sys/wait\
+      |syslog\
+      |tar\
+      |termios\
+      |tgmath\
+      |time\
+      |trace\
+      |ulimit\
+      |unistd
+      |utime\
+      |utmpx\
+      |wchar\
+      |wctype\
+      |wordexp\
+      )\\.h>"
+    Priority: 5
+  # Windows
+  - Regex: "\
+      ^<(\
+      windows
+      |excpt\
+      |stdarg\
+      |windef\
+      |winnt\
+      |basetsd\
+      |guiddef\
+      |ctype\
+      |string\
+      |winbase\
+      |winerror\
+      |wingdi\
+      |winuser\
+      |winnls\
+      |wincon\
+      |winver\
+      |winreg\
+      |winnetwk\
+      |winsvc\
+      |cderr\
+      |commdlg\
+      |dde\
+      |ddeml\
+      |dlgs\
+      |lzexpand\
+      |mmsystem\
+      |nb30\
+      |rpc\
+      |shellapi\
+      |wincrypt\
+      |winperf\
+      |winresrc\
+      |winsock\
+      |winspool\
+      |winbgim\
+      |ole2\
+      |objbase\
+      |oleauto\
+      |olectlid\
+      )\\.h>"
+    Priority: 6
+  - Regex: '^<imm\.hhh>'
+    Priority: 6
+  # C stdlib from std:: (always <c*.h> )
+  - Regex: '^<c.*\.h>'
+    Priority: 8
+  # C stdlib (always <*.h> )
+  - Regex: '^<.*\.h>'
+    Priority: 9
+  # std:: (always <*> )
+  - Regex: "^<.*>"
+    Priority: 7
+  # Everything else goes before boost, but clang-format matches in order
+  - Regex: '^".*"'
+    Priority: 2
