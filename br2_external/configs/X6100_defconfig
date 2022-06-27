@@ -1,0 +1,6 @@
+# Architecture
+BR2_arm=y
+BR2_cortex_a7=y
+BR2_ARM_FPU_NEON_VFPV4=y
+
+# TODO(ruilvo): Finish this
