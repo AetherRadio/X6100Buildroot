@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-source get_buildroot.sh
+source br_config.sh
 
 ${BR_MAKE_ALIAS} "$@"
