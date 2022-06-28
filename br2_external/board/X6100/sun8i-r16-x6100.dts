@@ -1,0 +1,449 @@
+/dts-v1/;
+
+/*
+ * Decompiled, and cleaned up device tree file for the X6100.
+ * Thanks <apritzel> from #linux-sunxi @ OFTC (https://oftc.net/)
+ */
+
+#include "sun8i-a33.dtsi"
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
+/ {
+	model = "XIEGU Tech X6100 HF+6m Transceiver";
+	compatible = "xiegu,x6100", "allwinner,sun8i-r16";
+
+	aliases {
+		serial0 = "/soc/serial@1c28000";
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		mali_cma: cma@4a000000 {
+			compatible = "shared-dma-pool";
+			size = <0x8000000>;
+			alloc-ranges = <0x4a000000 0x8000000>;
+			reusable;
+			linux,cma-default;
+		};
+	};
+
+	mmc1_pwrseq: mmc1-pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		reset-gpios = <&pio 2 0 GPIO_ACTIVE_LOW>;	/* PC0 (?) */
+	};
+
+	reg_usb0_vbus: usb0_vbus {
+		compatible = "regulator-fixed";
+		regulator-name = "usb0_vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+	};
+
+	reg_vcc3v3: vcc3v3 {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc3v3";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+	};
+
+	reg_vcc5v0: vcc5v0 {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc5v0";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+	};
+
+	backlight: backlight {
+		compatible = "pwm-backlight";
+		power-supply = <&reg_vcc5v0>;
+		pwms = <&pwm 0x00 0xc350 0x00>;
+		brightness-levels = <0 10 20 30 40 50 60 70 80 90 100>;
+		default-brightness-level = <5>;
+		enable-gpios = <&r_pio 0 6 GPIO_ACTIVE_HIGH>;	/* PL6 */
+	};
+
+	spi {
+		compatible = "spi-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		sck-gpios = <&r_pio 0 9 GPIO_ACTIVE_HIGH>;	/* PL9 */
+		mosi-gpios = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
+		cs-gpios = <&r_pio 0 7 GPIO_ACTIVE_HIGH>;	/* PL7 */
+		num-chipselects = <1>;
+		status = "okay";
+
+		panel@0 {
+			compatible = "jinglitai,jlt4013a";
+			reg = <0>;
+			power-supply = <&reg_vcc3v3>;
+			reset-gpios = <&r_pio 0 11 GPIO_ACTIVE_LOW>; /* PL11 */
+			dcx-gpios = <&r_pio 0 10 GPIO_ACTIVE_LOW>;   /* PL10 */
+			backlight = <&backlight>;
+			spi-max-frequency = <100000>;
+
+			port {
+				panel_input: endpoint {
+					remote-endpoint = <&tcon0_out_panel>;
+				};
+			};
+		};
+	};
+
+	matrix_keypad {
+		compatible = "gpio-matrix-keypad";
+		row-gpios = <&pio 6 10 0x17>, <&pio 6 7 0x17>,	/* PG6-PG10 */
+			    <&pio 6 6 0x17>, <&pio 6 8 0x17>,
+			    <&pio 6 9 0x17>;
+		col-gpios = <&pio 4 16 GPIO_ACTIVE_LOW>,	/* PE11-PE17 */
+			    <&pio 4 17 GPIO_ACTIVE_LOW>,
+			    <&pio 4 11 GPIO_ACTIVE_LOW>,
+			    <&pio 4 14 GPIO_ACTIVE_LOW>,
+			    <&pio 4 12 GPIO_ACTIVE_LOW>,
+			    <&pio 4 13 GPIO_ACTIVE_LOW>;
+		linux,keymap = <MATRIX_KEY(0, 0, BTN_TRIGGER_HAPPY1)
+				MATRIX_KEY(0, 1, BTN_TRIGGER_HAPPY2)
+				MATRIX_KEY(0, 2, BTN_TRIGGER_HAPPY3)
+				MATRIX_KEY(0, 3, BTN_TRIGGER_HAPPY4)
+				MATRIX_KEY(0, 4, BTN_TRIGGER_HAPPY5)
+				MATRIX_KEY(0, 5, BTN_TRIGGER_HAPPY6)
+				MATRIX_KEY(1, 0, BTN_TRIGGER_HAPPY7)
+				MATRIX_KEY(1, 1, BTN_TRIGGER_HAPPY8)
+				MATRIX_KEY(1, 2, BTN_TRIGGER_HAPPY9)
+				MATRIX_KEY(1, 3, BTN_TRIGGER_HAPPY10)
+				MATRIX_KEY(1, 4, BTN_TRIGGER_HAPPY11)
+				MATRIX_KEY(1, 5, BTN_TRIGGER_HAPPY12)
+				MATRIX_KEY(2, 0, BTN_TRIGGER_HAPPY13)
+				MATRIX_KEY(2, 1, BTN_TRIGGER_HAPPY14)
+				MATRIX_KEY(2, 2, BTN_TRIGGER_HAPPY15)
+				MATRIX_KEY(2, 3, BTN_TRIGGER_HAPPY16)
+				MATRIX_KEY(2, 4, BTN_TRIGGER_HAPPY17)
+				MATRIX_KEY(2, 5, BTN_TRIGGER_HAPPY18)
+				MATRIX_KEY(3, 0, BTN_TRIGGER_HAPPY19)
+				MATRIX_KEY(3, 1, BTN_TRIGGER_HAPPY20)
+				MATRIX_KEY(3, 2, BTN_TRIGGER_HAPPY21)
+				MATRIX_KEY(3, 3, BTN_TRIGGER_HAPPY22)
+				MATRIX_KEY(3, 4, BTN_TRIGGER_HAPPY23)
+				MATRIX_KEY(3, 5, BTN_TRIGGER_HAPPY24)
+				MATRIX_KEY(4, 0, BTN_TRIGGER_HAPPY25)
+				MATRIX_KEY(4, 1, BTN_TRIGGER_HAPPY26)
+				MATRIX_KEY(4, 2, BTN_TRIGGER_HAPPY27)
+				MATRIX_KEY(4, 3, BTN_TRIGGER_HAPPY28)
+				MATRIX_KEY(4, 4, BTN_TRIGGER_HAPPY29)
+				MATRIX_KEY(4, 5, BTN_TRIGGER_HAPPY30)>;
+		gpio-activelow;
+		wakeup-source;
+		linux,no-autorepeat;
+		debounce-delay-ms = <25>;
+		col-scan-delay-us = <1>;
+		drive-inactive-cols;
+	};
+
+	rotary0 {
+		compatible = "rotary-encoder";
+		gpios = <&pio 1 3 GPIO_ACTIVE_LOW>,	/* PB3 */
+			<&pio 1 2 GPIO_ACTIVE_LOW>;	/* PB2 */
+		linux,axis = <0>;
+		rotary-encoder,encoding = "gray";
+		rotary-encoder,relative-axis;
+	};
+
+	rotary1 {
+		compatible = "rotary-encoder";
+		gpios = <&pio 1 6 GPIO_ACTIVE_LOW>, <&pio 1 4 GPIO_ACTIVE_LOW>;
+		linux,axis = <1>;
+		rotary-encoder,encoding = "gray";
+		rotary-encoder,relative-axis;
+	};
+
+	rotary3 {
+		compatible = "rotary-encoder";
+		gpios = <&pio 1 7 GPIO_ACTIVE_LOW>, <&pio 1 5 GPIO_ACTIVE_LOW>;
+		linux,axis = <2>;
+		rotary-encoder,encoding = "gray";
+		rotary-encoder,relative-axis;
+	};
+};
+
+&codec {
+	status = "okay";
+};
+
+&dai {
+	status = "okay";
+};
+
+&ehci0 {
+	status = "okay";
+};
+
+&i2c0 {
+	status = "okay";
+};
+
+&i2c1 {
+	status = "okay";
+
+	rtc@51 {
+		compatible = "nxp,pcf8563";
+		reg = <0x51>;
+		interrupt-parent = <&pio>;
+		interrupts = <6 13 0x02>;			/* PG13 */
+	};
+};
+
+&mali {
+	memory-region = <&mali_cma>;
+	operating-points-v2 = <0x23>;
+};
+
+&mmc0 {
+	status = "okay";
+	vmmc-supply = <&reg_dcdc1>;
+	cd-gpios = <&pio 4 3 GPIO_ACTIVE_LOW>;	/* PE3 */
+	bus-width = <4>;
+};
+
+&mmc1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&mmc1_pg_pins>;
+	vmmc-supply = <&reg_aldo1>;
+	mmc-pwrseq = <&mmc1_pwrseq>;
+	bus-width = <4>;
+	non-removable;
+};
+
+&mmc2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&mmc2_8bit_pins>;
+	vmmc-supply = <&reg_dcdc1>;
+	bus-width = <8>;
+	non-removable;
+	cap-mmc-hw-reset;
+};
+
+&ohci0 {
+	status = "okay";
+};
+
+&pio {
+	vcc-pb-supply = <&reg_vcc3v3>;
+	vcc-pc-supply = <&reg_vcc3v3>;
+	vcc-pd-supply = <&reg_vcc3v3>;
+	vcc-pe-supply = <&reg_vcc3v3>;
+	vcc-pf-supply = <&reg_vcc3v3>;
+	vcc-pg-supply = <&reg_vcc3v3>;
+	vcc-ph-supply = <&reg_vcc3v3>;
+	vcc-pl-supply = <&reg_vcc3v3>;
+
+	uart3_pins: uart3-pins {
+		pins = "PH6", "PH7";
+		function = "uart3";
+	};
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm0_pin>;
+};
+
+&r_rsb {
+	status = "okay";
+
+	axp22x: pmic@3a3 {
+		compatible = "x-powers,axp223";
+		reg = <0x3a3>;
+		interrupt-parent = <&r_intc>;
+		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
+		eldoin-supply = <&reg_dcdc1>;
+		interrupt-controller;
+		#interrupt-cells = <1>;
+	};
+};
+
+#include "axp223.dtsi"
+
+&ac_power_supply {
+	status = "okay";
+};
+
+&battery_power_supply {
+	status = "okay";
+};
+
+&reg_dcdc1 {
+	regulator-name = "vcc-3v0";
+	regulator-always-on;
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+};
+
+&reg_dcdc2 {
+	regulator-name = "vdd-sys";
+	regulator-always-on;
+	regulator-min-microvolt = <900000>;
+	regulator-max-microvolt = <1400000>;
+};
+
+&reg_dcdc3 {
+	regulator-name = "vdd-cpu";
+	regulator-always-on;
+	regulator-min-microvolt = <900000>;
+	regulator-max-microvolt = <1400000>;
+};
+
+&reg_dcdc5 {
+	regulator-name = "vcc-dram";
+	regulator-always-on;
+	regulator-min-microvolt = <1500000>;
+	regulator-max-microvolt = <1500000>;
+};
+
+&reg_dc1sw {
+	regulator-name = "vcc-lcd";
+};
+
+&reg_dc5ldo {
+	regulator-name = "vdd-cpus";
+	regulator-always-on;
+	regulator-min-microvolt = <900000>;
+	regulator-max-microvolt = <1400000>;
+};
+
+&reg_aldo1 {
+	regulator-name = "vcc-io";
+	regulator-always-on;
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+};
+
+&reg_aldo2 {
+	regulator-name = "vdd-dll";
+	regulator-always-on;
+	regulator-min-microvolt = <2350000>;
+	regulator-max-microvolt = <2350000>;
+};
+
+&reg_aldo3 {
+	regulator-name = "vcc-pll-avcc";
+	regulator-always-on;
+	regulator-min-microvolt = <2700000>;
+	regulator-max-microvolt = <3300000>;
+};
+
+&reg_dldo1 {
+	regulator-name = "vcc-wifi0";
+	regulator-always-on;
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+};
+
+&reg_dldo2 {
+	regulator-name = "vcc-wifi1";
+	regulator-always-on;
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+};
+
+&reg_dldo3 {
+	regulator-name = "vcc-3v0-csi";
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+};
+
+&reg_eldo1 {
+	regulator-name = "vcc-1v2-hsic";
+	regulator-min-microvolt = <1200000>;
+	regulator-max-microvolt = <1200000>;
+};
+
+&reg_eldo2 {
+	regulator-name = "vcc-dsp";
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+};
+
+&reg_eldo3 {
+	regulator-name = "eldo3";
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+};
+
+&reg_rtc_ldo {
+	regulator-always-on;
+	regulator-min-microvolt = <3000000>;
+	regulator-max-microvolt = <3000000>;
+	regulator-name = "rtc_ldo";
+};
+
+&reg_drivevbus {
+	regulator-name = "usb0-vbus";
+	status = "okay";
+};
+
+&r_uart {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&r_uart_pins_a>;
+};
+
+&sound {
+	simple-audio-card,routing = "Left DAC", "AIF1 Slot 0 Left",
+				    "Right DAC", "AIF1 Slot 0 Right",
+				    "AIF1 Slot 0 Left ADC", "Left ADC",
+				    "AIF1 Slot 0 Right ADC", "Right ADC";
+	status = "okay";
+};
+
+&tcon0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&lcd_rgb666_pins>;
+	status = "okay";
+};
+
+&tcon0_out {
+        tcon0_out_panel: endpoint@0 {
+                reg = <0>;
+                remote-endpoint = <&panel_input>;
+        };
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pb_pins>;
+};
+
+&uart3 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart3_pins>;
+};
+
+&usb_otg {
+	dr_mode = "host";
+	status = "okay";
+};
+
+&usbphy {
+	status = "okay";
+	usb0_id_det-gpios = <&pio 7 8 GPIO_ACTIVE_HIGH>;	/* PH8 */
+	usb0_vbus_power-supply = <0x16>;
+	usb0_vbus-supply = <&reg_usb0_vbus>;
+	usb1_vbus-supply = <&reg_vcc5v0>;
+};
+
+&usb_power_supply {
+	status = "okay";
+};
