@@ -8,7 +8,7 @@ BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_5_15=y
 
 # System configuration
 BR2_TARGET_GENERIC_HOSTNAME="Xiegu-X6100"
-BR2_TARGET_GENERIC_ISSUE="Welcome to Xiegu X6100 HF+6m Transceiver!"
+BR2_TARGET_GENERIC_ISSUE="Welcome to the Xiegu X6100 HF+6m Transceiver!"
 
 # Bootloaders
 BR2_TARGET_UBOOT=y
