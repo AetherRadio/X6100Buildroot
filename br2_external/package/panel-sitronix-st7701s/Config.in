@@ -1,5 +1,0 @@
-config BR2_PACKAGE_PANEL_SITRONIX_ST7701S
-	bool "panel_sitronix_st7701s"
-	depends on BR2_LINUX_KERNEL
-	help
-	  Sitronix ST7701 SPI panel driver
