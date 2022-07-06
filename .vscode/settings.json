@@ -4,5 +4,8 @@
         "**/.git/subtree-cache/**": true,
         "**/buildroot*/**": true,
         "**/build/**": true
-    }
+    },
+    "files.associations": {
+        "*_defconfig": "kconfig",
+    },
 }
