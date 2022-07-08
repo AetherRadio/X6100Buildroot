@@ -7,5 +7,6 @@
     },
     "files.associations": {
         "*_defconfig": "kconfig",
+        "boot.cmd": "shellscript"
     },
 }
