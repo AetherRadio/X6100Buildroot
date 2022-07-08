@@ -1,0 +1,20 @@
+#! /bin/sh
+
+source /etc/profile
+
+case "$1" in
+  start)
+    echo "Running embiggen to expand the root partition..."
+    embiggen-disk /
+    ;;
+  stop)
+    echo "Embiggen has nothing to do on stop..."
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+
+esac
+
+exit 0
