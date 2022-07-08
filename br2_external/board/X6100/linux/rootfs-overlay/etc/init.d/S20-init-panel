@@ -1,0 +1,21 @@
+#! /bin/sh
+
+source /etc/profile
+
+case "$1" in
+  start)
+    echo "Initializing the display panel..."
+    modprobe panel-sitronix-st7701s
+    ;;
+  stop)
+    echo "Deinitializing the display panel..."
+    modprobe -r panel-sitronix-st7701s
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+
+esac
+
+exit 0
