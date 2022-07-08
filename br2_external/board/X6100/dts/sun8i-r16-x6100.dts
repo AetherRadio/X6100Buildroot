@@ -185,6 +185,10 @@
 	};
 };
 
+&de {
+	status = "okay";
+};
+
 &codec {
 	status = "okay";
 };
