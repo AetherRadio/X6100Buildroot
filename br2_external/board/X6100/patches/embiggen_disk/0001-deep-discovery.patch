@@ -1,0 +1,42 @@
+From 661a9a8d868bfdf71d8674eb5e59e2c1888343ae Mon Sep 17 00:00:00 2001
+From: "Yann E. MORIN" <yann.morin@orange.com>
+Date: Tue, 17 May 2022 12:23:38 +0200
+Subject: [PATCH] fs: further try to find the device associated with the
+ mountpoint
+
+The heuristic to find the path to the device node where the filesystem
+is mounted, sometime fails to find the device node, especially for cases
+where /dev/root is mounted on /. We have code to handle that case, but
+it may still fail (for reasons that we could not fathom... sigh...)
+
+Add a last-ditch tentative by calling to an external tool, findmnt,
+which very purpose is exactly to provide information about mountpoints.
+
+In our case, we just need the path to the device node (-o SOURCE), and
+we do not need the header line (-n). We also assume that, if findmnt did
+find something of interest to us, it will return something that is at
+least 2 bytes long (counting the trailing \n).
+
+Signed-off-by: Yann E. MORIN <yann.morin@orange.com>
+---
+ fs.go | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/fs.go b/fs.go
+index c2f36c9..5630e92 100644
+--- a/fs.go
++++ b/fs.go
+@@ -135,7 +135,12 @@ func statFS(mnt string) (fs fsStat, err error) {
+ 			if fs.dev == "/dev/root" {
+ 				dev, err := findDevRoot()
+ 				if err != nil {
+-					return fs, fmt.Errorf("failed to map /dev/root to real device: %v", err)
++					// last-ditch recovery
++					out, err := exec.Command("findmnt", "-n", "-o", "SOURCE", mnt).Output()
++					if err != nil || len(out) < 2 {
++						return fs, fmt.Errorf("failed to map /dev/root to real device: %v", err)
++					}
++					dev = strings.Split(string(out), "\n")[0]
+ 				}
+ 				fs.dev = dev
+ 			}
