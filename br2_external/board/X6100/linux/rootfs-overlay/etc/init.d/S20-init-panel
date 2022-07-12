@@ -8,8 +8,8 @@ case "$1" in
     modprobe panel-sitronix-st7701s
     ;;
   stop)
-    echo "Deinitializing the display panel..."
-    modprobe -r panel-sitronix-st7701s
+    echo "Skipping deinitializing the display panel..."
+    # modprobe -r panel-sitronix-st7701s
     ;;
   *)
     echo "Usage: $0 {start|stop}" >&2
