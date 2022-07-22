@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  buildroot:
+    build:
+      dockerfile: Dockerfile
+    stop_signal: SIGKILL
+    volumes:
+      - .:/workspace:cached
+      - vscode_server:/root/.vscode-server
+      - build_output:/workspace/build
+      - buildroot_dir:/workspace/buildroot-2022.02.3
+      - buildroot_cache:/root/.buildroot-ccache
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+volumes:
+  vscode_server:
+  build_output:
+  buildroot_dir:
+  buildroot_cache:
