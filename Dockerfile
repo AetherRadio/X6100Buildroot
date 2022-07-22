@@ -10,7 +10,7 @@ RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
 # Install dependencies
-RUN apt install -y git build-essential wget cpio unzip rsync bc libncurses5-dev screen file
+RUN apt install -y git build-essential wget cpio unzip rsync bc libncurses5-dev screen file python3
 
 # Make a working dir
 WORKDIR /workspace
