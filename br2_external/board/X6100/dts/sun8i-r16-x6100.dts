@@ -58,6 +58,7 @@
 		regulator-boot-on;
 		enable-active-high;
 		gpio = <&pio 03 12 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
 
 	reg_vcc3v3: vcc3v3 {
@@ -294,6 +295,12 @@
 	status = "okay";
 };
 
+// In the original DTS but not this one
+// adc {
+// 	compatible = "x-powers,axp221-adc";
+// 	#io-channel-cells = <0x01>;
+// };
+
 &battery_power_supply {
 	status = "okay";
 };
@@ -319,6 +326,11 @@
 	regulator-max-microvolt = <1400000>;
 };
 
+// In the original DTS but not this one
+// dcdc4 {
+// 	regulator-name = "dcdc4";
+// };
+
 &reg_dcdc5 {
 	regulator-name = "vcc-dram";
 	regulator-always-on;
@@ -328,6 +340,7 @@
 
 &reg_dc1sw {
 	regulator-name = "vcc-lcd";
+	regulator-always-on;
 };
 
 &reg_dc5ldo {
@@ -377,6 +390,11 @@
 	regulator-min-microvolt = <3000000>;
 	regulator-max-microvolt = <3000000>;
 };
+
+// In the original DTS but not this one
+// dldo4 {
+// 	regulator-name = "dldo4";
+// };
 
 &reg_eldo1 {
 	regulator-name = "vcc-1v2-hsic";
