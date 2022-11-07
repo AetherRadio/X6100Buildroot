@@ -303,7 +303,7 @@
 	};
 
 	rotary_3_pins: rotary-3-pins {
-		pins = "PB5" "PB7";
+		pins = "PB5", "PB7";
 		function = "gpio_in";
 		bias-pull-up;
 	};
