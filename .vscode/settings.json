@@ -9,4 +9,5 @@
         "*_defconfig": "kconfig",
         "boot.cmd": "shellscript"
     },
+    "redhat.telemetry.enabled": false,
 }
