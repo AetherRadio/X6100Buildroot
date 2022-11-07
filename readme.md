@@ -66,7 +66,7 @@ to save.
 
 ## Dockerfile and VSCode (cross-platform development)
 
-You can have a nice development environment, including developing on windows,
+You can have a nice development environment, including developing on Windows,
 you can use the included Docker setup.
 You'll need [Visual Studio Code](https://code.visualstudio.com/) and
 [Docker](https://www.docker.com/) installed (on Windows machines, Docker
