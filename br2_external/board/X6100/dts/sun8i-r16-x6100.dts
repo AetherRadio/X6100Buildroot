@@ -167,6 +167,8 @@
 		linux,axis = <0>;
 		rotary-encoder,encoding = "gray";
 		rotary-encoder,relative-axis;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rotary_1_pins>;
 	};
 
 	rotary1 {
@@ -175,6 +177,8 @@
 		linux,axis = <1>;
 		rotary-encoder,encoding = "gray";
 		rotary-encoder,relative-axis;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rotary_2_pins>;
 	};
 
 	rotary3 {
@@ -183,6 +187,8 @@
 		linux,axis = <2>;
 		rotary-encoder,encoding = "gray";
 		rotary-encoder,relative-axis;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rotary_3_pins>;
 	};
 };
 
@@ -214,6 +220,8 @@
 		reg = <0x51>;
 		interrupt-parent = <&pio>;
 		interrupts = <6 13 0x02>;			/* PG13 */
+		interrupt-names = "irq";
+		irq-gpios = <&pio 6 13 GPIO_ACTIVE_HIGH>;
 	};
 };
 
@@ -254,6 +262,8 @@
 };
 
 &pio {
+	/delete-property/ interrupt-parent;
+
 	vcc-pb-supply = <&reg_vcc3v3>;
 	vcc-pc-supply = <&reg_vcc3v3>;
 	vcc-pd-supply = <&reg_vcc3v3>;
@@ -266,6 +276,36 @@
 	uart3_pins: uart3-pins {
 		pins = "PH6", "PH7";
 		function = "uart3";
+	};
+
+	usb0_id_detect_pin0: usb0_id_detect_pin@0 {
+		pins = "PH8";
+		function = "gpio_in";
+		bias-pull-up;
+	};
+
+	usb0_vbus_detect_pin0: usb0_vbus_detect_pin@0 {
+		pins = "PH9";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+
+	rotary_1_pins: rotary-1-pins {
+		pins = "PB2", "PB3";
+		function = "gpio_in";
+		bias-pull-up;
+	};
+
+	rotary_2_pins: rotary-2-pins {
+		pins = "PB4", "PB6";
+		function = "gpio_in";
+		bias-pull-up;
+	};
+
+	rotary_3_pins: rotary-3-pins {
+		pins = "PB5" "PB7";
+		function = "gpio_in";
+		bias-pull-up;
 	};
 };
 
@@ -295,12 +335,6 @@
 	status = "okay";
 };
 
-// In the original DTS but not this one
-// adc {
-// 	compatible = "x-powers,axp221-adc";
-// 	#io-channel-cells = <0x01>;
-// };
-
 &battery_power_supply {
 	status = "okay";
 };
@@ -325,11 +359,6 @@
 	regulator-min-microvolt = <900000>;
 	regulator-max-microvolt = <1400000>;
 };
-
-// In the original DTS but not this one
-// dcdc4 {
-// 	regulator-name = "dcdc4";
-// };
 
 &reg_dcdc5 {
 	regulator-name = "vcc-dram";
@@ -390,11 +419,6 @@
 	regulator-min-microvolt = <3000000>;
 	regulator-max-microvolt = <3000000>;
 };
-
-// In the original DTS but not this one
-// dldo4 {
-// 	regulator-name = "dldo4";
-// };
 
 &reg_eldo1 {
 	regulator-name = "vcc-1v2-hsic";
@@ -476,8 +500,26 @@
 	usb0_vbus_power-supply = <0x16>;
 	usb0_vbus-supply = <&reg_usb0_vbus>;
 	usb1_vbus-supply = <&reg_vcc5v0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb0_id_detect_pin0>;
 };
 
 &usb_power_supply {
+	status = "okay";
+};
+
+&lradc {
+	/delete-property/ interrupt-parent;
+};
+
+&rtc {
+	/delete-property/ interrupt-parent;
+};
+
+&r_pio {
+	/delete-property/ interrupt-parent;
+};
+
+&dphy {
 	status = "okay";
 };
