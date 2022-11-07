@@ -9,7 +9,7 @@ services:
       - .:/workspace:cached
       - vscode_server:/root/.vscode-server
       - build_output:/workspace/build
-      - buildroot_dir:/workspace/buildroot-2022.02.3
+      - buildroot_dir:/workspace/buildroot-2022.08.1
       - buildroot_cache:/root/.buildroot-ccache
     restart: always
     logging:
