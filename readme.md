@@ -5,7 +5,9 @@ copy files from the vendor's kernel.
 
 ## Building
 
-To build, just:
+### Building on Linux
+
+To build on a Linux machine, just:
 
 ```shell
 .\br_build.sh
@@ -14,7 +16,17 @@ To build, just:
 And then you'll have a `sdcard.img` in the `build` directory, you can then
 flash.
 
-## Changing configurations
+#### Buildroot dependencies
+
+If you are indeed using Linux, check the pre-requesites of Buildroot
+[here](https://buildroot.org/downloads/manual/manual.html#requirement).
+
+### Building on other OSes
+
+The recomended way of building this repo on other systems is using Docker, as
+described below.
+
+## Changing buildroot configurations
 
 If you want to change the Buildroot configuration, first do this:
 
@@ -32,7 +44,7 @@ cd build; make savedefconfig; cd ..
 > :warning: You **can't** just make `.\br_make.sh savedefconfig` because it will override
 your changes!
 
-### U-boot and Linux kernel configurations
+### Changing U-Boot and Linux kernel configurations
 
 For those you can just:
 
@@ -52,10 +64,20 @@ and:
 
 to save.
 
-## Dockerfile and VSCode
+## Dockerfile and VSCode (cross-platform development)
 
 You can have a nice development environment, including developing on windows,
-you can use the included Docker stuff.
-If you open the repository directory with Visual Studio Code, it'll ask you if
-you want to reopen the directory in the container.
+you can use the included Docker setup.
+You'll need [Visual Studio Code](https://code.visualstudio.com/) and
+[Docker](https://www.docker.com/) installed (on Windows machines, Docker
+requires [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)),
+and the proper extensions for VSCode: the
+[remote development pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack), and the
+[docker support
+extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
+
+With this configured, if you open the repository directory with VSCode, it'll
+ask you if you want to reopen the directory in the container.
 Say yes, and you'll have a development environment fully configured.
+Use the integrated terminal from VSCode and you'll have a Linux terminal ready
+for you.
