@@ -16,7 +16,7 @@ ENV LANG en_US.utf8
 
 # Install dependencies (but not asciidoc because it wants to install LaTeX)
 RUN apt-get install -y git build-essential wget cpio unzip rsync bc \
-    libncurses5 screen file cmake \
+    libncurses5 libncurses5-dev libncursesw5-dev screen file cmake \
     python3 python3-dev python3-setuptools python3-pip \
     flex bison coreutils gzip lzip tar make \
     xz-utils diffutils patch gzip bzip2 perl \
