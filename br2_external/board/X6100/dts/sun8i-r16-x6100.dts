@@ -508,18 +508,6 @@
 	status = "okay";
 };
 
-&lradc {
-	/delete-property/ interrupt-parent;
-};
-
-&rtc {
-	/delete-property/ interrupt-parent;
-};
-
-&r_pio {
-	/delete-property/ interrupt-parent;
-};
-
 &dphy {
 	status = "okay";
 };
