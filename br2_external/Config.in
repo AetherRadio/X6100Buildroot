@@ -1,1 +1,1 @@
-source "$BR2_EXTERNAL_X6100_PATH/package/panel-sitronix-st7701s/Config.in"
+source "$BR2_EXTERNAL_X6100_PATH/package/panel-jinglitai-jlt4013a/Config.in"

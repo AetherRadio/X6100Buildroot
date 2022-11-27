@@ -1,0 +1,5 @@
+config BR2_PACKAGE_PANEL_JINGLITAI_JLT4013A
+	bool "panel_jinglitai_jlt4013a"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Driver for the Jinglitai JLT4013A LCD Panel

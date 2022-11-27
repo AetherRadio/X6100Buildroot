@@ -5,11 +5,11 @@ source /etc/profile
 case "$1" in
   start)
     echo "Initializing the display panel..."
-    modprobe panel-sitronix-st7701s
+    modprobe panel-jinglitai-jlt4013a
     ;;
   stop)
     echo "Skipping deinitializing the display panel..."
-    # modprobe -r panel-sitronix-st7701s
+    # modprobe -r panel-jinglitai-jlt4013a
     ;;
   *)
     echo "Usage: $0 {start|stop}" >&2
