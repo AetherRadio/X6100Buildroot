@@ -64,6 +64,17 @@ and:
 
 to save.
 
+### Other useful recipes
+
+If you change the `boot.cmd` file, then you have to run:
+
+```sh
+./br_make host-uboot-tools-rebuild; ./br_build
+```
+
+[source](https://stackoverflow.com/questions/66116553/boot-scr-rebuild-in-buildroot)
+
+
 ## Dockerfile and VSCode (cross-platform development)
 
 You can have a nice development environment, including developing on Windows,
