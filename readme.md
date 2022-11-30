@@ -69,7 +69,7 @@ to save.
 If you change the `boot.cmd` file, then you have to run:
 
 ```sh
-./br_make host-uboot-tools-rebuild; ./br_build
+./br_make.sh host-uboot-tools-rebuild; ./br_build.sh
 ```
 
 [source](https://stackoverflow.com/questions/66116553/boot-scr-rebuild-in-buildroot)
