@@ -1,0 +1,536 @@
+ 0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found U-Boot script /boot.scr
+346 bytes read in 2 ms (168.9 KiB/s)
+## Executing script at 43100000
+------------ X6100 boot script ------------
+5298496 bytes read in 224 ms (22.6 MiB/s)
+26160 bytes read in 4 ms (6.2 MiB/s)
+Kernel image @ 0x46000000 [ 0x000000 - 0x50d940 ]
+## Flattened Device Tree blob at 49000000
+   Booting using the fdt blob at 0x49000000
+   Loading Device Tree to 49ff6000, end 49fff62f ... OK
+DE is present but not probed
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 5.17.15 (root@3f9d1790b466) (arm-buildroot-linux-gnueabihf-gcc.br_real (Buildroot 2022.08.1) 12.1.0, GNU ld (GNU Binutils) 2.38) #1 SMP PREEMPT Tue Nov 29 19:34:19 UTC 2022
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: XIEGU Tech X6100 HF+6m Transceiver
+[    0.000000] printk: debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] Reserved memory: created CMA memory pool at 0x4a000000, size 128 MiB
+[    0.000000] OF: reserved mem: initialized node cma@4a000000, compatible id shared-dma-pool
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000040000000-0x000000006fffffff]
+[    0.000000]   HighMem  [mem 0x0000000070000000-0x000000007fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x000000007fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: Using PSCI v0.1 Function IDs from DT
+[    0.000000] percpu: Embedded 12 pages/cpu s17804 r8192 d23156 u49152
+[    0.000000] pcpu-alloc: s17804 r8192 d23156 u49152 alloc=12*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 260608
+[    0.000000] Kernel command line: console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10 fbcon=rotate:3 drm.debug=0x1f ignore_loglevel
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] Memory: 894480K/1048576K available (8192K kernel code, 915K rwdata, 2000K rodata, 1024K init, 257K bss, 23024K reserved, 131072K cma-reserved, 262144K highmem)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000002] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000022] Switching to timer-based delay loop, resolution 41ns
+[    0.000267] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.000892] Console: colour dummy device 80x30
+[    0.000979] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.001006] pid_max: default: 32768 minimum: 301
+[    0.001243] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.001276] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.002115] CPU: Testing write buffer coherency: ok
+[    0.002621] /cpus/cpu@0 missing clock-frequency property
+[    0.002674] /cpus/cpu@1 missing clock-frequency property
+[    0.002702] /cpus/cpu@2 missing clock-frequency property
+[    0.002729] /cpus/cpu@3 missing clock-frequency property
+[    0.002748] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003652] cblist_init_generic: Setting adjustable number of callback queues.
+[    0.003682] cblist_init_generic: Setting shift to 2 and lim to 1.
+[    0.003818] cblist_init_generic: Setting shift to 2 and lim to 1.
+[    0.003977] Setting up static identity map for 0x40100000 - 0x40100060
+[    0.004168] rcu: Hierarchical SRCU implementation.
+[    0.005036] smp: Bringing up secondary CPUs ...
+[    0.006295] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.007673] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.008931] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.009040] smp: Brought up 1 node, 4 CPUs
+[    0.009077] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.009090] CPU: All CPU(s) started in HYP mode.
+[    0.009098] CPU: Virtualization extensions available.
+[    0.010067] devtmpfs: initialized
+[    0.016968] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.017223] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.017264] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.023344] pinctrl core: initialized pinctrl subsystem
+[    0.025508] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.027744] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.029146] thermal_sys: Registered thermal governor 'step_wise'
+[    0.029744] cpuidle: using governor menu
+[    0.029984] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.030007] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.043038] platform 1e60000.display-backend: Fixing up cyclic dependency with 1e00000.display-frontend
+[    0.043509] platform 1e70000.drc: Fixing up cyclic dependency with 1c0c000.lcd-controller
+[    0.043599] platform 1e70000.drc: Fixing up cyclic dependency with 1e60000.display-backend
+[    0.061044] SCSI subsystem initialized
+[    0.061387] libata version 3.00 loaded.
+[    0.061637] usbcore: registered new interface driver usbfs
+[    0.061695] usbcore: registered new interface driver hub
+[    0.061744] usbcore: registered new device driver usb
+[    0.062080] pps_core: LinuxPPS API ver. 1 registered
+[    0.062094] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.062118] PTP clock support registered
+[    0.062889] Advanced Linux Sound Architecture Driver Initialized.
+[    0.064065] clocksource: Switched to clocksource arch_sys_counter
+[    0.072439] NET: Registered PF_INET protocol family
+[    0.072864] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.074014] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes, linear)
+[    0.074126] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.074154] TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+[    0.074305] TCP bind hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.074430] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.074631] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.074729] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.075032] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.075707] RPC: Registered named UNIX socket transport module.
+[    0.075734] RPC: Registered udp transport module.
+[    0.075742] RPC: Registered tcp transport module.
+[    0.075751] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.077215] Initialise system trusted keyrings
+[    0.077582] workingset: timestamp_bits=30 max_order=18 bucket_order=0
+[    0.085097] NFS: Registering the id_resolver key type
+[    0.085190] Key type id_resolver registered
+[    0.085202] Key type id_legacy registered
+[    0.085569] Key type asymmetric registered
+[    0.085588] Asymmetric key parser 'x509' registered
+[    0.085768] bounce: pool size: 64 pages
+[    0.085912] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.085931] io scheduler mq-deadline registered
+[    0.085944] io scheduler kyber registered
+[    0.145992] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
+[    0.148470] [drm:drm_core_init] Initialized
+[    0.148686] [drm:sun4i_drv_probe] Adding component /soc/display-frontend@1e00000
+[    0.148795] [drm:sun4i_drv_probe] Adding component /soc/display-backend@1e60000
+[    0.148862] [drm:sun4i_drv_probe] Adding component /soc/drc@1e70000
+[    0.148931] [drm:sun4i_drv_probe] Adding component /soc/lcd-controller@1c0c000
+[    0.149029] [drm:sun4i_drv_traverse_endpoints] Endpoint is our panel... skipping
+[    0.150371] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/display-frontend@1e00000
+[    0.151245] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/display-frontend@1e00000
+[    0.151302] [drm:compare_of] Comparing of node /soc/display-backend@1e60000 with /soc/display-frontend@1e00000
+[    0.151791] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/display-frontend@1e00000
+[    0.151831] [drm:compare_of] Comparing of node /soc/display-backend@1e60000 with /soc/display-frontend@1e00000
+[    0.151861] [drm:compare_of] Comparing of node /soc/display-frontend@1e00000 with /soc/display-frontend@1e00000
+[    0.151891] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/display-backend@1e60000
+[    0.151921] [drm:compare_of] Comparing of node /soc/display-backend@1e60000 with /soc/display-backend@1e60000
+[    0.151951] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/drc@1e70000
+[    0.151980] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/lcd-controller@1c0c000
+[    0.152009] [drm:compare_of] Comparing of node /soc/display-backend@1e60000 with /soc/lcd-controller@1c0c000
+[    0.152038] [drm:compare_of] Comparing of node /soc/display-frontend@1e00000 with /soc/lcd-controller@1c0c000
+[    0.156322] lima 1c40000.gpu: gp - mali400 version major 1 minor 1
+[    0.156435] lima 1c40000.gpu: pp0 - mali400 version major 1 minor 1
+[    0.156500] lima 1c40000.gpu: pp1 - mali400 version major 1 minor 1
+[    0.156552] lima 1c40000.gpu: l2 cache 64K, 4-way, 64byte cache line, 64bit external bus
+[    0.157111] lima 1c40000.gpu: bus rate = 200000000
+[    0.157136] lima 1c40000.gpu: mod rate = 384000000
+[    0.157217] lima 1c40000.gpu: Empty OPP table
+[    0.157232] lima 1c40000.gpu: OPP table empty
+[    0.157276] lima 1c40000.gpu: dev_pm_opp_set_regulators: no regulator (mali) found: -19
+[    0.157295] lima 1c40000.gpu: _of_add_opp_table_v2: no supported OPPs
+[    0.157312] lima 1c40000.gpu: Fatal error during devfreq init
+[    0.157727] lima: probe of 1c40000.gpu failed with error -2
+[    0.162328] CAN device driver interface
+[    0.163371] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.163391] ehci-platform: EHCI generic platform driver
+[    0.163577] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.163605] ohci-platform: OHCI generic platform driver
+[    0.165881] sun6i-rtc 1f00000.rtc: registered as rtc0
+[    0.165936] sun6i-rtc 1f00000.rtc: setting system clock to 1970-01-01T00:00:03 UTC (3)
+[    0.165961] sun6i-rtc 1f00000.rtc: RTC enabled
+[    0.166356] i2c_dev: i2c /dev entries driver
+[    0.167906] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+[    0.172385] sun4i-ss 1c15000.crypto-engine: Die ID 5
+[    0.173586] usbcore: registered new interface driver usbhid
+[    0.173608] usbhid: USB HID core driver
+[    0.177586] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    0.178318] NET: Registered PF_PACKET protocol family
+[    0.178352] can: controller area network core
+[    0.178455] NET: Registered PF_CAN protocol family
+[    0.178472] can: raw protocol
+[    0.178486] can: broadcast manager protocol
+[    0.178503] can: netlink gateway - max_hops=1
+[    0.179127] Key type dns_resolver registered
+[    0.179261] Registering SWP/SWPB emulation handler
+[    0.180043] Loading compiled-in X.509 certificates
+[    0.198348] sun8i-a23-r-pinctrl 1f02c00.pinctrl: initialized sunXi PIO driver
+[    0.201651] sun8i-a33-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+[    0.202682] sun8i-a23-r-pinctrl 1f02c00.pinctrl: supply vcc-pl not found, using dummy regulator
+[    0.204604] printk: console [ttyS0] disabled
+[    0.224843] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 42, base_baud = 1500000) is a U6_16550A
+[    1.328571] printk: console [ttyS0] enabled
+[    1.354594] 1c28c00.serial: ttyS1 at MMIO 0x1c28c00 (irq = 43, base_baud = 1500000) is a U6_16550A
+[    1.391123] 1f02800.serial: ttyS2 at MMIO 0x1f02800 (irq = 58, base_baud = 1500000) is a U6_16550A
+[    1.401143] panel@0 enforce active low on chipselect handle
+[    1.407556] spi spi0.0: Fixing up cyclic dependency with 1c0c000.lcd-controller
+[    1.417493] input: matrix_keypad as /devices/platform/matrix_keypad/input/input0
+[    1.425819] rotary-encoder rotary0: gray
+[    1.430506] input: rotary0 as /devices/platform/rotary0/input/input1
+[    1.437569] rotary-encoder rotary1: gray
+[    1.442198] input: rotary1 as /devices/platform/rotary1/input/input2
+[    1.449213] rotary-encoder rotary3: gray
+[    1.453821] input: rotary3 as /devices/platform/rotary3/input/input3
+[    1.471721] sunxi-rsb 1f03400.rsb: RSB running at 3000000 Hz
+[    1.477955] axp20x-rsb sunxi-rsb-3a3: AXP20x variant AXP223 found
+[    1.487404] input: axp20x-pek as /devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp221-pek/input/input4
+[    1.498512] vcc-3v0: Bringing 3300000uV into 3000000-3000000uV
+[    1.508161] vcc-1v2-hsic: Bringing 700000uV into 1200000-1200000uV
+[    1.514807] vcc-dsp: Bringing 700000uV into 3000000-3000000uV
+[    1.520898] eldo3: Bringing 700000uV into 3000000-3000000uV
+[    1.526884] vcc-wifi0: Bringing 700000uV into 3300000-3300000uV
+[    1.533234] vcc-wifi1: Bringing 700000uV into 3300000-3300000uV
+[    1.539651] vcc-3v0-csi: Bringing 700000uV into 3000000-3000000uV
+[    1.548326] axp20x-usb-power-supply axp20x-usb-power-supply: DMA mask not set
+[    1.557067] axp20x-rsb sunxi-rsb-3a3: AXP20X driver loaded
+[    1.567214] sunxi-mmc 1c0f000.mmc: Got CD GPIO
+[    1.575085] sunxi-mmc 1c10000.mmc: allocated mmc-pwrseq
+[    1.576566] ALSA device list:
+[    1.583321]   #0: sun8i-a33-audio
+[    1.597165] sunxi-mmc 1c0f000.mmc: initialized, max. request size: 16384 KB
+[    1.604250] sunxi-mmc 1c11000.mmc: initialized, max. request size: 16384 KB
+[    1.605657] sunxi-mmc 1c10000.mmc: initialized, max. request size: 16384 KB
+[    1.618513] Waiting for root device /dev/mmcblk0p2...
+[    1.649645] mmc0: host does not support reading read-only switch, assuming write-enable
+[    1.657842] mmc0: new SDHC card at address 0001
+[    1.663620] mmcblk0: mmc0:0001 00000 3.72 GiB
+[    1.671919]  mmcblk0: p1 p2
+[    1.694710] mmc2: new DDR MMC card at address 0001
+[    1.700672] mmcblk2: mmc2:0001 8GME4R 7.28 GiB
+[    1.708110]  mmcblk2: p1 p2
+[    1.712069] mmcblk2boot0: mmc2:0001 8GME4R 4.00 MiB
+[    1.719786] mmcblk2boot1: mmc2:0001 8GME4R 4.00 MiB
+[    1.745432] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    1.754493] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+[    1.762438] devtmpfs: mounted
+[    1.766994] Freeing unused kernel image (initmem) memory: 1024K
+[    1.784323] Run /sbin/init as init process
+[    1.788425]   with arguments:
+[    1.791390]     /sbin/init
+[    1.794135]   with environment:
+[    1.797276]     HOME=/
+[    1.799636]     TERM=linux
+[    2.103138] EXT4-fs (mmcblk0p2): re-mounted. Quota mode: disabled.
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Populating /dev using udev: [    2.718936] udevd[141]: starting version 3.2.11
+[    2.767442] random: udevd: uninitialized urandom read (16 bytes read)
+[    2.776280] random: udevd: uninitialized urandom read (16 bytes read)
+[    2.782864] random: udevd: uninitialized urandom read (16 bytes read)
+[    2.832245] udevd[142]: starting eudev-3.2.11
+[    3.204300] mc: Linux media interface: v0.10
+[    3.218638] rtc-pcf8563 1-0051: registered as rtc1
+[    3.229174] axp20x-ac-power-supply axp20x-ac-power-supply: DMA mask not set
+[    3.235471] axp20x-battery-power-supply axp20x-battery-power-supply: DMA mask not set
+[    3.264966] axp20x-adc axp22x-adc: DMA mask not set
+[    3.300768] videodev: Linux video capture interface: v2.00
+[    3.438118] sunxi_cedrus: module is from the staging directory, the quality is unknown, you have been warned.
+[    3.459091] cedrus 1c0e000.video-codec: Device registered as /dev/video0
+done
+Initializing the display panel...
+[    3.749857] panel_jinglitai_jlt4013a: loading out-of-tree module taints kernel.
+[    3.759609] [drm:compare_of] Comparing of node /soc/drc@1e70000 with /soc/lcd-controller@1c0c000
+[    3.771599] [drm:compare_of] Comparing of node /soc/display-backend@1e60000 with /soc/lcd-controller@1c0c000
+[    3.784171] [drm:compare_of] Comparing of node /soc/display-frontend@1e00000 with /soc/lcd-controller@1c0c000
+[    3.794465] [drm:compare_of] Comparing of node /soc/lcd-controller@1c0c000 with /soc/lcd-controller@1c0c000
+[    3.805311] sun4i-drm display-engine: bound 1e00000.display-frontend (ops 0xc09559e8)
+Saving random seed: [    3.813866] sun4i-drm display-engine: bound 1e60000.display-backend (ops 0xc0955180)
+[    3.823434] sun4i-drm display-engine: bound 1e70000.drc (ops 0xc0954cb0)
+[    3.831444] sun4i-drm display-engine: bound 1c0c000.lcd-controller (ops 0xc0953ac8)
+[    3.837907] urandom_read_iter: 2 callbacks suppressed
+[    3.837944] random: dd: uninitialized urandom read (32 bytes read)
+[    3.839955] [drm:drm_minor_register]
+[    3.854191] [drm:drm_minor_register]
+cut: standard output: No space left on device
+[    3.859206] [drm:drm_minor_register] new minor registered 0
+[    3.868335] [drm:drm_sysfs_connector_add] adding "Unknown-1" to sysfs
+OK
+[    3.875867] sun4i-drm display-engine: [drm:drm_sysfs_connector_hotplug_event] [CONNECTOR:49:Unknown-1] generating connector hotplug event
+[    3.889340] [drm] Initialized sun4i-drm 1.0.0 20150629 for display-engine on minor 0
+[    3.897622] [drm:drm_client_modeset_probe]
+Running embiggen to expand the root partition...
+[    3.901890] [drm:drm_mode_object_get] OBJ ID: 49 (2)
+[    3.911270] [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:49:Unknown-1]
+[    3.918938] [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:49:Unknown-1] status updated from unknown to connected
+[    3.930127] [drm:drm_sysfs_hotplug_event] generating hotplug event
+[    3.934233] [drm:sun4i_rgb_mode_valid] Validating modes...
+[    3.941994] [drm:sun4i_rgb_mode_valid] Horizontal parameters OK
+[    3.948335] [drm:sun4i_rgb_mode_valid] Vertical parameters OK
+[    3.954415] [drm:sun4i_rgb_mode_valid] RGB panel used, skipping clock rate checks
+[    3.954440] [drm:sun4i_rgb_mode_valid] Clock rate OK
+[    3.967310] [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:49:Unknown-1] probed modes :
+[    3.976418] [drm:drm_mode_debug_printmodeline] Modeline "480x800": 30 14616 480 512 523 525 800 854 895 928 0x48 0x0
+[    3.987255] [drm:drm_client_modeset_probe] connector 49 enabled? yes
+[    3.993639] [drm:drm_client_modeset_probe] Not using firmware configuration
+[    4.000978] [drm:drm_client_modeset_probe] looking for cmdline mode on connector 49
+[    4.008850] [drm:drm_client_modeset_probe] looking for preferred mode on connector 49 0
+[    4.017013] [drm:drm_client_modeset_probe] found mode 480x800
+[    4.022781] [drm:drm_client_modeset_probe] picking CRTCs for 8192x8192 config
+[    4.030113] [drm:drm_client_modeset_probe] desired mode 480x800 set on crtc 47 (0,0)
+[    4.037961] [drm:drm_mode_object_get] OBJ ID: 49 (2)
+[    4.042966] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (3)
+[    4.048788] sun4i-drm display-engine: [drm:__drm_fb_helper_initial_config_and_unlock] test CRTC 0 primary plane
+[    4.059025] sun4i-drm display-engine: [drm:drm_fb_helper_generic_probe] surface width(480), height(800) and bpp(32)
+[    4.072147] [drm:drm_mode_addfb2] [FB:50]
+[    4.076329] [drm:drm_mode_object_put.part.0] OBJ ID: 50 (2)
+[    4.082970] sun4i-drm display-engine: [drm:drm_atomic_state_init] Allocated atomic state (ptrval)
+[    4.083026] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:31:plane-0] (ptrval) state to (ptrval)
+[    4.083054] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:35:plane-1] (ptrval) state to (ptrval)
+[    4.083076] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:35:plane-1] state (ptrval)
+[    4.083105] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:39:plane-2] (ptrval) state to (ptrval)
+[    4.083123] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:39:plane-2] state (ptrval)
+[    4.083143] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:43:plane-3] (ptrval) state to (ptrval)
+[    4.083159] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:43:plane-3] state (ptrval)
+[    4.083209] sun4i-drm display-engine: [drm:drm_atomic_get_crtc_state] Added [CRTC:47:crtc-0] (ptrval) state to (ptrval)
+[    4.083251] sun4i-drm display-engine: [drm:drm_atomic_set_mode_for_crtc] Set [MODE:480x800] for [CRTC:47:crtc-0] state (ptrval)
+[    4.083273] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_plane] Link [PLANE:31:plane-0] state (ptrval) to [CRTC:47:crtc-0]
+[    4.083302] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [FB:50] for [PLANE:31:plane-0] state (ptrval)
+[    4.083321] [drm:drm_mode_object_get] OBJ ID: 50 (1)
+[    4.083348] sun4i-drm display-engine: [drm:drm_atomic_add_affected_connectors] Adding all current connectors for [CRTC:47:crtc-0] to (ptrval)
+[    4.083381] [drm:drm_mode_object_get] OBJ ID: 49 (2)
+[    4.083398] sun4i-drm display-engine: [drm:drm_atomic_get_connector_state] Added [CONNECTOR:49:Unknown-1] (ptrval) state to (ptrval)
+[    4.083416] [drm:drm_mode_object_get] OBJ ID: 49 (3)
+[    4.083430] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_connector] Link [CONNECTOR:49:Unknown-1] state (ptrval) to [CRTC:47:crtc-0]
+[    4.083452] sun4i-drm display-engine: [drm:drm_atomic_check_only] checking (ptrval)
+[    4.083488] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CRTC:47:crtc-0] mode changed
+[    4.083518] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CRTC:47:crtc-0] enable changed
+[    4.083535] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CRTC:47:crtc-0] active changed
+[    4.083588] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] Updating routing for [CONNECTOR:49:Unknown-1]
+[    4.083619] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CONNECTOR:49:Unknown-1] using [ENCODER:48:None-48] on [CRTC:47:crtc-0]
+[    4.083641] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CRTC:47:crtc-0] needs all connectors, enable: y, active: y
+[    4.083663] sun4i-drm display-engine: [drm:drm_atomic_add_affected_connectors] Adding all current connectors for [CRTC:47:crtc-0] to (ptrval)
+[    4.083686] sun4i-drm display-engine: [drm:drm_atomic_add_affected_planes] Adding all current planes for [CRTC:47:crtc-0] to (ptrval)
+[    4.083711] sun4i-drm display-engine: [drm:drm_atomic_add_encoder_bridges] Adding all bridges for [encoder:48:None-48] to (ptrval)
+[    4.083736] [drm:sun4i_rgb_mode_valid] Validating modes...
+[    4.083754] [drm:sun4i_rgb_mode_valid] Horizontal parameters OK
+[    4.083766] [drm:sun4i_rgb_mode_valid] Vertical parameters OK
+[    4.083777] [drm:sun4i_rgb_mode_valid] RGB panel used, skipping clock rate checks
+[    4.083789] [drm:sun4i_rgb_mode_valid] Clock rate OK
+[    4.083816] [drm:drm_atomic_normalize_zpos] [CRTC:47:crtc-0] calculating normalized zpos values
+[    4.083836] [drm:drm_atomic_normalize_zpos] [PLANE:31:plane-0] processing zpos value 0
+[    4.083854] [drm:drm_atomic_normalize_zpos] [PLANE:31:plane-0] normalized zpos value 0
+[    4.083878] [drm:sun4i_backend_atomic_check] Starting checking our planes
+[    4.083894] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.083911] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.083926] [drm:sun4i_backend_atomic_check] Plane FB format is XR24 little-endian (0x34325258)
+[    4.083946] [drm:sun4i_backend_atomic_check] Plane zpos is 0
+[    4.083959] [drm:sun4i_backend_atomic_check] State valid with 1 planes, 0 alpha, 0 video, 0 YUV
+[    4.083979] sun4i-drm display-engine: [drm:drm_atomic_commit] committing (ptrval)
+[    4.084134] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: hwmode: htotal 525, vtotal 928, vdisplay 800
+[    4.084168] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: clock 14616 kHz framedur 33333333 linedur 35919
+[    4.084189] sun4i-drm display-engine: [drm:crtc_set_mode] modeset on [CRTC:47:crtc-0]
+[    4.112709] [drm:sun4i_tcon_mode_set] TCON 0 clock delay 30
+[    4.112751] [drm:sun4i_tcon_mode_set] Setting horizontal total 525, backporch 13
+[    4.112766] [drm:sun4i_tcon_mode_set] Setting vertical total 928, backporch 74
+[    4.112780] [drm:sun4i_tcon_mode_set] Setting HSYNC 11, VSYNC 41
+[    4.112796] [drm:sun4i_tcon_mode_set] Muxing encoder None-48 to CRTC crtc-0: -524
+[    4.112818] sun4i-drm display-engine: [drm:crtc_set_mode] modeset on [ENCODER:48:None-48]
+[    4.112842] sun4i-drm display-engine: [drm:drm_atomic_helper_commit_modeset_enables] enabling [CRTC:47:crtc-0]
+[    4.112859] [drm:sun4i_crtc_atomic_enable] Enabling the CRTC
+[    4.112892] sun4i-drm display-engine: [drm:drm_atomic_helper_commit_modeset_enables] enabling [ENCODER:48:None-48]
+[    4.112911] [drm:sun4i_rgb_encoder_enable] Enabling RGB output
+[    4.244155] [drm:sun4i_crtc_enable_vblank] Enabling VBLANK on crtc (ptrval)
+[    4.244228] [drm:sun4i_tcon_enable_vblank] Enabling VBLANK interrupt
+[    4.244267] sun4i-drm display-engine: [drm:drm_vblank_enable] enabling vblank on crtc 0, ret: 0
+[    4.244340] [drm:sun4i_backend_update_layer_formats] Switching display backend interlaced mode off
+[    4.244364] [drm:sun4i_backend_update_layer_buffer] Layer line width: 15360 bits
+[    4.244385] [drm:sun4i_backend_update_layer_buffer] Setting buffer address to 0x4a200000
+[    4.244402] [drm:sun4i_backend_update_layer_buffer] Setting address lower bits to 0x51000000
+[    4.244416] [drm:sun4i_backend_update_layer_buffer] Setting address high bits to 0x2
+[    4.244431] [drm:sun4i_backend_update_layer_coord] Updating layer 0
+[    4.244444] [drm:sun4i_backend_update_layer_coord] Primary layer, updating global size W: 480 H: 800
+[    4.244459] [drm:sun4i_backend_update_layer_coord] Layer size W: 480 H: 800
+[    4.244473] [drm:sun4i_backend_update_layer_coord] Layer coordinates X: 0 Y: 0
+[    4.244487] [drm:sun4i_backend_update_layer_zpos] Setting layer 0's priority to 0 and pipe 0
+[    4.244503] [drm:sun4i_backend_layer_enable] Enabling layer 0
+[    4.244520] [drm:sun4i_crtc_atomic_flush] Committing plane changes
+[    4.244531] [drm:sun4i_backend_commit] Committing changes
+[    4.246271] sun4i-drm display-engine: [drm:drm_atomic_state_default_clear] Clearing atomic state (ptrval)
+[    4.246298] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (4)
+[    4.246330] sun4i-drm display-engine: [drm:__drm_atomic_state_free] Freeing atomic state (ptrval)
+[    4.247108] sun4i-drm display-engine: [drm:drm_atomic_state_init] Allocated atomic state (ptrval)
+[    4.247157] [drm:drm_mode_object_get] OBJ ID: 50 (2)
+[    4.247179] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:31:plane-0] (ptrval) state to (ptrval)
+[    4.247202] [drm:drm_mode_object_get] OBJ ID: 51 (1)
+[    4.247217] sun4i-drm display-engine: [drm:drm_atomic_get_crtc_state] Added [CRTC:47:crtc-0] (ptrval) state to (ptrval)
+[    4.247236] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:35:plane-1] (ptrval) state to (ptrval)
+[    4.247255] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:35:plane-1] state (ptrval)
+[    4.247279] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:39:plane-2] (ptrval) state to (ptrval)
+[    4.247295] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:39:plane-2] state (ptrval)
+[    4.247313] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:43:plane-3] (ptrval) state to (ptrval)
+[    4.247329] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:43:plane-3] state (ptrval)
+[    4.247355] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [FB:50] for [PLANE:31:plane-0] state (ptrval)
+[    4.247372] [drm:drm_mode_object_get] OBJ ID: 50 (3)
+[    4.247384] [drm:drm_mode_object_put.part.0] OBJ ID: 50 (4)
+[    4.247401] sun4i-drm display-engine: [drm:drm_atomic_add_affected_connectors] Adding all current connectors for [CRTC:47:crtc-0] to (ptrval)
+[    4.247427] [drm:drm_mode_object_get] OBJ ID: 49 (4)
+[    4.247441] [drm:drm_mode_object_get] OBJ ID: 49 (5)
+[    4.247455] sun4i-drm display-engine: [drm:drm_atomic_get_connector_state] Added [CONNECTOR:49:Unknown-1] (ptrval) state to (ptrval)
+[    4.247473] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (5)
+[    4.247488] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_connector] Link [CONNECTOR:49:Unknown-1] state (ptrval) to [NOCRTC]
+[    4.247505] [drm:drm_mode_object_get] OBJ ID: 49 (4)
+[    4.247519] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_connector] Link [CONNECTOR:49:Unknown-1] state (ptrval) to [CRTC:47:crtc-0]
+[    4.247538] sun4i-drm display-engine: [drm:drm_atomic_check_only] checking (ptrval)
+[    4.247574] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] Updating routing for [CONNECTOR:49:Unknown-1]
+[    4.247602] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CONNECTOR:49:Unknown-1] keeps [ENCODER:48:None-48], now on [CRTC:47:crtc-0]
+[    4.247625] sun4i-drm display-engine: [drm:drm_atomic_add_encoder_bridges] Adding all bridges for [encoder:48:None-48] to (ptrval)
+[    4.247641] sun4i-drm display-engine: [drm:drm_atomic_add_encoder_bridges] Adding all bridges for [encoder:48:None-48] to (ptrval)
+[    4.247667] [drm:sun4i_backend_atomic_check] Starting checking our planes
+[    4.247685] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.247701] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.247715] [drm:sun4i_backend_atomic_check] Plane FB format is XR24 little-endian (0x34325258)
+[    4.247733] [drm:sun4i_backend_atomic_check] Plane zpos is 0
+[    4.247746] [drm:sun4i_backend_atomic_check] State valid with 1 planes, 0 alpha, 0 video, 0 YUV
+[    4.247762] sun4i-drm display-engine: [drm:drm_atomic_commit] committing (ptrval)
+[    4.247824] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: hwmode: htotal 525, vtotal 928, vdisplay 800
+[    4.247842] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: clock 14616 kHz framedur 33333333 linedur 35919
+[    4.247877] [drm:sun4i_backend_update_layer_formats] Switching display backend interlaced mode off
+[    4.247893] [drm:sun4i_backend_update_layer_buffer] Layer line width: 15360 bits
+[    4.247910] [drm:sun4i_backend_update_layer_buffer] Setting buffer address to 0x4a200000
+[    4.247924] [drm:sun4i_backend_update_layer_buffer] Setting address lower bits to 0x51000000
+[    4.247937] [drm:sun4i_backend_update_layer_buffer] Setting address high bits to 0x2
+[    4.247951] [drm:sun4i_backend_update_layer_coord] Updating layer 0
+[    4.247963] [drm:sun4i_backend_update_layer_coord] Primary layer, updating global size W: 480 H: 800
+[    4.248077] [drm:sun4i_backend_update_layer_coord] Layer size W: 480 H: 800
+[    4.248097] [drm:sun4i_backend_update_layer_coord] Layer coordinates X: 0 Y: 0
+[    4.248112] [drm:sun4i_backend_update_layer_zpos] Setting layer 0's priority to 0 and pipe 0
+[    4.248129] [drm:sun4i_backend_layer_enable] Enabling layer 0
+[    4.248145] [drm:sun4i_crtc_atomic_flush] Committing plane changes
+[    4.248156] [drm:sun4i_backend_commit] Committing changes
+[    4.279653] sun4i-drm display-engine: [drm:drm_atomic_state_default_clear] Clearing atomic state (ptrval)
+[    4.279707] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (5)
+[    4.279732] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (4)
+[    4.279748] [drm:drm_mode_object_put.part.0] OBJ ID: 51 (2)
+[    4.279764] [drm:drm_mode_object_put.part.0] OBJ ID: 50 (3)
+[    4.279787] sun4i-drm display-engine: [drm:__drm_atomic_state_free] Freeing atomic state (ptrval)
+[    4.285950] Console: switching to colour frame buffer device 100x30
+[    4.286077] sun4i-drm display-engine: [drm:drm_atomic_state_init] Allocated atomic state (ptrval)
+[    4.286143] [drm:drm_mode_object_get] OBJ ID: 50 (2)
+[    4.286171] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:31:plane-0] (ptrval) state to (ptrval)
+[    4.286199] [drm:drm_mode_object_get] OBJ ID: 51 (1)
+[    4.286217] sun4i-drm display-engine: [drm:drm_atomic_get_crtc_state] Added [CRTC:47:crtc-0] (ptrval) state to (ptrval)
+[    4.286238] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:35:plane-1] (ptrval) state to (ptrval)
+[    4.286258] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:35:plane-1] state (ptrval)
+[    4.286285] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:39:plane-2] (ptrval) state to (ptrval)
+[    4.286304] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:39:plane-2] state (ptrval)
+[    4.286324] sun4i-drm display-engine: [drm:drm_atomic_get_plane_state] Added [PLANE:43:plane-3] (ptrval) state to (ptrval)
+[    4.286341] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [NOFB] for [PLANE:43:plane-3] state (ptrval)
+[    4.286376] sun4i-drm display-engine: [drm:drm_atomic_set_fb_for_plane] Set [FB:50] for [PLANE:31:plane-0] state (ptrval)
+[    4.286396] [drm:drm_mode_object_get] OBJ ID: 50 (3)
+[    4.286409] [drm:drm_mode_object_put.part.0] OBJ ID: 50 (4)
+[    4.286428] sun4i-drm display-engine: [drm:drm_atomic_add_affected_connectors] Adding all current connectors for [CRTC:47:crtc-0] to (ptrval)
+[    4.286456] [drm:drm_mode_object_get] OBJ ID: 49 (4)
+[    4.286471] [drm:drm_mode_object_get] OBJ ID: 49 (5)
+[    4.286486] sun4i-drm display-engine: [drm:drm_atomic_get_connector_state] Added [CONNECTOR:49:Unknown-1] (ptrval) state to (ptrval)
+[    4.286505] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (5)
+[    4.286520] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_connector] Link [CONNECTOR:49:Unknown-1] state (ptrval) to [NOCRTC]
+[    4.286538] [drm:drm_mode_object_get] OBJ ID: 49 (4)
+[    4.286552] sun4i-drm display-engine: [drm:drm_atomic_set_crtc_for_connector] Link [CONNECTOR:49:Unknown-1] state (ptrval) to [CRTC:47:crtc-0]
+[    4.286572] sun4i-drm display-engine: [drm:drm_atomic_check_only] checking (ptrval)
+[    4.286615] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] Updating routing for [CONNECTOR:49:Unknown-1]
+[    4.286645] sun4i-drm display-engine: [drm:drm_atomic_helper_check_modeset] [CONNECTOR:49:Unknown-1] keeps [ENCODER:48:None-48], now on [CRTC:47:crtc-0]
+[    4.286670] sun4i-drm display-engine: [drm:drm_atomic_add_encoder_bridges] Adding all bridges for [encoder:48:None-48] to (ptrval)
+[    4.286686] sun4i-drm display-engine: [drm:drm_atomic_add_encoder_bridges] Adding all bridges for [encoder:48:None-48] to (ptrval)
+[    4.286717] [drm:sun4i_backend_atomic_check] Starting checking our planes
+[    4.286739] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.286756] [drm:sun4i_backend_atomic_check] Input size 480x800, output size 480x800
+[    4.286771] [drm:sun4i_backend_atomic_check] Plane FB format is XR24 little-endian (0x34325258)
+[    4.286791] [drm:sun4i_backend_atomic_check] Plane zpos is 0
+[    4.286805] [drm:sun4i_backend_atomic_check] State valid with 1 planes, 0 alpha, 0 video, 0 YUV
+[    4.286822] sun4i-drm display-engine: [drm:drm_atomic_commit] committing (ptrval)
+[    4.286899] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: hwmode: htotal 525, vtotal 928, vdisplay 800
+[    4.286920] sun4i-drm display-engine: [drm:drm_calc_timestamping_constants] crtc 47: clock 14616 kHz framedur 33333333 linedur 35919
+[    4.286970] [drm:sun4i_backend_update_layer_formats] Switching display backend interlaced mode off
+[    4.286991] [drm:sun4i_backend_update_layer_buffer] Layer line width: 15360 bits
+[    4.287019] [drm:sun4i_backend_update_layer_buffer] Setting buffer address to 0x4a200000
+[    4.287042] [drm:sun4i_backend_update_layer_buffer] Setting address lower bits to 0x51000000
+[    4.287059] [drm:sun4i_backend_update_layer_buffer] Setting address high bits to 0x2
+[    4.287075] [drm:sun4i_backend_update_layer_coord] Updating layer 0
+[    4.287090] [drm:sun4i_backend_update_layer_coord] Primary layer, updating global size W: 480 H: 800
+[    4.287107] [drm:sun4i_backend_update_layer_coord] Layer size W: 480 H: 800
+[    4.287121] [drm:sun4i_backend_update_layer_coord] Layer coordinates X: 0 Y: 0
+[    4.287136] [drm:sun4i_backend_update_layer_zpos] Setting layer 0's priority to 0 and pipe 0
+[    4.287155] [drm:sun4i_backend_layer_enable] Enabling layer 0
+[    4.287173] [drm:sun4i_crtc_atomic_flush] Committing plane changes
+[    4.287185] [drm:sun4i_backend_commit] Committing changes
+[    4.313196] sun4i-drm display-engine: [drm:drm_atomic_state_default_clear] Clearing atomic state (ptrval)
+[    4.313283] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (5)
+[    4.313330] [drm:drm_mode_object_put.part.0] OBJ ID: 49 (4)
+[    4.313351] [drm:drm_mode_object_put.part.0] OBJ ID: 51 (2)
+[    4.313375] [drm:drm_mode_object_put.part.0] OBJ ID: 50 (3)
+[    4.313401] sun4i-drm display-engine: [drm:__drm_atomic_state_free] Freeing atomic state (ptrval)
+[    5.228021] EXT4-fs (mmcblk0p2): resizing filesystem from 262144 to 3866624 blocks
+[    5.231045] sun4i-drm display-engine: [drm] fb0: sun4i-drmdrmfb frame buffer device
+[    6.771060] EXT4-fs (mmcblk0p2): resized filesystem to 3866624
+Changes made:
+  * partition /dev/mmcblk0p2: before: 524288 sectors, after: 7733248 sectors
+  * ext4 filesystem at /: before: 235439 blocks, after: 3612469 blocks
+Starting system message bus: [    7.456919] random: dbus-uuidgen: uninitialized urandom read (12 bytes read)
+[    7.464255] random: dbus-uuidgen: uninitialized urandom read (8 bytes read)
+[    7.534629] random: dbus-daemon: uninitialized urandom read (12 bytes read)
+done
+Starting bluetoothd: OK
+Starting network: OK
+[    7.890592] Bluetooth: Core ver 2.22
+[    7.894499] NET: Registered PF_BLUETOOTH protocol family
+[    7.899854] Bluetooth: HCI device and connection manager initialized
+[    7.906358] Bluetooth: HCI socket layer initialized
+[    7.911823] Bluetooth: L2CAP socket layer initialized
+[    7.917096] Bluetooth: SCO socket layer initialized
+Starting NetworkManager ... [    8.034792] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    8.040194] Bluetooth: BNEP socket layer initialized
+done.
+Starting sntp: [    8.618238] urandom_read_iter: 2 callbacks suppressed
+[    8.618278] random: NetworkManager: uninitialized urandom read (16 bytes read)
+sntp 4.2.8p15@1.3728-o Tue Nov 29 18:50:01 UTC 2022 (1)
+pool.ntp.org lookup error Temporary failure in name resolution
+FAIL
+Starting ntpd: OK
+Starting pulseaudio: [    9.035179] random: nm-dispatcher: uninitialized urandom read (16 bytes read)
+[    9.140961] random: pulseaudio: uninitialized urandom read (4 bytes read)
+[    9.354089] sun4i-drm display-engine: [drm:vblank_disable_fn] disabling vblank on crtc 0
+[    9.362259] [drm:sun4i_crtc_disable_vblank] Disabling VBLANK on crtc (ptrval)
+[    9.369405] [drm:sun4i_tcon_enable_vblank] Disabling VBLANK interrupt
+OK
+[   13.354085] random: crng init done
+[   13.357533] random: 2 urandom warning(s) missed due to ratelimiting
+ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
+Starting sshd: OK
+
+Welcome to the Xiegu X6100 HF+6m Transceiver!
+Xiegu-X6100 login: [   31.834116] usb1_vbus: disabling
+root
+#
