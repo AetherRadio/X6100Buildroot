@@ -2,7 +2,7 @@
 
 # DO NOT RUN THIS SCRIPT MANUALLY, AS IT'S NOT NEEDED TO DO SO.
 
-BR_RELEASE="buildroot-2022.08.1"
+BR_RELEASE="buildroot-2022.08.2"
 
 if [ ! -e ${BR_RELEASE}.tar.gz ]; then
   wget https://buildroot.org/downloads/${BR_RELEASE}.tar.gz
