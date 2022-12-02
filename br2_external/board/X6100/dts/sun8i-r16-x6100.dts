@@ -495,7 +495,7 @@
 &usbphy {
 	status = "okay";
 	usb0_id_det-gpios = <&pio 7 8 GPIO_ACTIVE_HIGH>;	/* PH8 */
-	usb0_vbus_power-supply = <0x16>;
+	usb0_vbus_power-supply = <&usb_power_supply>;
 	usb0_vbus-supply = <&reg_usb0_vbus>;
 	usb1_vbus-supply = <&reg_vcc5v0>;
 	pinctrl-names = "default";
