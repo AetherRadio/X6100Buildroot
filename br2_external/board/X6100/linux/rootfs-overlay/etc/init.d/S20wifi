@@ -1,0 +1,24 @@
+#! /bin/sh
+
+source /etc/profile
+
+case "$1" in
+  start)
+    echo "Turn on the WiFi..."
+    echo 357 > /sys/class/gpio/export
+    echo out > /sys/class/gpio/gpio357/direction
+    echo 0 > /sys/class/gpio/gpio357/value
+    ;;
+  stop)
+    echo "Turn off the WiFi..."
+    echo 1 > /sys/class/gpio/gpio357/value
+    echo 357 > /sys/class/gpio/unexport
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+
+esac
+
+exit 0
