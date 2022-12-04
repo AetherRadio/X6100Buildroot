@@ -31,7 +31,7 @@ described below.
 If you want to change the Buildroot configuration, first do this:
 
 ```shell
-.\br_make.sh menuconfig
+./br_make.sh menuconfig
 ```
 
 And the menu configuration will open. Do your changes, save, and exit.
@@ -41,7 +41,7 @@ Then, to save the configurations, do:
 cd build; make savedefconfig; cd ..
 ```
 
-> :warning: You **can't** just make `.\br_make.sh savedefconfig` because it will override
+> :warning: You **can't** just make `./br_make.sh savedefconfig` because it will override
 your changes!
 
 ### Changing U-Boot and Linux kernel configurations
@@ -49,17 +49,17 @@ your changes!
 For those you can just:
 
 ```sh
-.\br_make.sh uboot-menuconfig
+./br_make.sh uboot-menuconfig
 # or
-.\br_make.sh linux-menuconfig
+./br_make.sh linux-menuconfig
 ```
 
 and:
 
 ```sh
-.\br_make.sh uboot-savedefconfig
+./br_make.sh uboot-savedefconfig
 # or
-.\br_make.sh linux-savedefconfig
+./br_make.sh linux-savedefconfig
 ```
 
 to save.
