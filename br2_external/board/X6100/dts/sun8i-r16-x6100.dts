@@ -99,7 +99,7 @@
 			reg = <0>;
 			power-supply = <&reg_vcc3v3>;
 			reset-gpios = <&r_pio 0 11 GPIO_ACTIVE_LOW>; /* PL11 */
-			dcx-gpios = <&r_pio 0 10 GPIO_ACTIVE_LOW>;   /* PL10 */
+			dcx-gpios = <&r_pio 0 10 GPIO_ACTIVE_HIGH>;  /* PL10 */
 			backlight = <&backlight>;
 			spi-max-frequency = <100000>;
 
