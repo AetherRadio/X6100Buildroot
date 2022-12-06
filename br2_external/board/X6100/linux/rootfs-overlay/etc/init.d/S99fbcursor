@@ -4,7 +4,7 @@ source /etc/profile
 
 case "$1" in
   start)
-    echo "Turn of blinking cursor..."
+    echo "Turning off the blinking cursor..."
     echo 0 > /sys/class/graphics/fbcon/cursor_blink
     ;;
   stop)
