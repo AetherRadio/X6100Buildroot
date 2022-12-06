@@ -1,0 +1,19 @@
+#! /bin/sh
+
+source /etc/profile
+
+case "$1" in
+  start)
+    echo "Turning off the blinking cursor..."
+    echo 0 > /sys/class/graphics/fbcon/cursor_blink
+    ;;
+  stop)
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+
+esac
+
+exit 0
