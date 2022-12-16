@@ -1,0 +1,5 @@
+config BR2_PACKAGE_AETHER_X6100_CONTROL
+	bool "aether_x6100_control"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Aether-Radio's X6100 base control library
