@@ -35,10 +35,10 @@ If you want to change the Buildroot configuration, first do this:
 ```
 
 And the menu configuration will open. Do your changes, save, and exit.
-Then, to save the configurations, do:
+Then, to save the configurations, navigate to the build directory and run:
 
 ```shell
-cd build; make savedefconfig; cd ..
+make savedefconfig;
 ```
 
 > :warning: You **can't** just make `./br_make.sh savedefconfig` because it will override

@@ -9,6 +9,6 @@ if [ ! -e ${BR_RELEASE}.tar.gz ]; then
   tar xf ${BR_RELEASE}.tar.gz
 fi
 
-BR_MAKE_ALIAS="make -C ${BR_RELEASE} BR2_EXTERNAL=../br2_external O=../build"
+BR_MAKE_ALIAS="make -C ${BR_RELEASE} BR2_EXTERNAL=../br2_external O=../../X6100Buildroot_build"
 
 ${BR_MAKE_ALIAS} X6100_defconfig
